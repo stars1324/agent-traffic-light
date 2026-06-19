@@ -4,6 +4,8 @@
 
 ![concept](https://img.shields.io/badge/status-running-FDD835) ![concept](https://img.shields.io/badge/status-success-66BB6A) ![concept](https://img.shields.io/badge/status-failed-EF5350)
 
+![示例](https://i.meee.com.tw/IU80U2P.png)
+
 ## 这是什么
 
 在多窗口并行 "vibe coding" 时，你常常开了 3、4 个 agent 各自跑任务：
