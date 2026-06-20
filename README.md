@@ -188,3 +188,7 @@ A: 在 `AGENTS` 字典里加一项即可，例如 `"aider": "aider"`。
 ## License
 
 MIT
+
+## 联系
+
+有问题欢迎邮件联系：[1105504520@qq.com](mailto:1105504520@qq.com)
