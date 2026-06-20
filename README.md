@@ -116,7 +116,43 @@ python3 main.py show     _              # 恢复显示
 
 卡片名用 `$(basename $PWD)`（当前项目目录名），这样每个项目的卡片自动区分。把 `/path/to/vibecoding-light/main.py` 换成你本机的实际路径。
 
-**Codex**（参考其 hook / 配置文档，把同样的命令挂到对应的生命周期事件上即可）。`main.py` 在识别父进程时同时匹配 `claude` 和 `codex` 两个关键字，所以存活检测对两者都生效。
+**Codex**（`~/.codex/config.toml`）：
+
+请先确认 `config.toml` 中已经把 hook 功能打开（设为 `true`），否则下面配置的事件不会触发：
+
+```toml
+[features]
+hooks = true
+```
+
+然后在 `~/.codex/hooks.json`（或对应的 hook 配置文件）里配置生命周期事件：
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/vibecoding-light/main.py success $(basename $PWD)"}]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/vibecoding-light/main.py run $(basename $PWD)"}]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/vibecoding-light/main.py success $(basename $PWD)"}]
+      }
+    ]
+  }
+}
+```
+
+`main.py` 在识别父进程时同时匹配 `claude` 和 `codex` 两个关键字，所以存活检测对两者都生效。把 `/Users/tina/Code/vibecoding-light/main.py` 换成你本机的实际路径。
 
 ## 状态颜色
 
