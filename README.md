@@ -86,7 +86,7 @@ python3 main.py show     _              # 恢复显示
       "hooks": [
         {
           "type": "command",
-          "command": "/usr/bin/python3 /path/to/vibecoding-light/main.py success $(basename $PWD)"
+          "command": "/usr/bin/python3 /path/to/agent-traffic-light/main.py success $(basename $PWD)"
         }
       ]
     }
@@ -96,7 +96,7 @@ python3 main.py show     _              # 恢复显示
       "hooks": [
         {
           "type": "command",
-          "command": "/usr/bin/python3 /path/to/vibecoding-light/main.py run $(basename $PWD)"
+          "command": "/usr/bin/python3 /path/to/agent-traffic-light/main.py run $(basename $PWD)"
         }
       ]
     }
@@ -106,7 +106,7 @@ python3 main.py show     _              # 恢复显示
       "hooks": [
         {
           "type": "command",
-          "command": "/usr/bin/python3 /path/to/vibecoding-light/main.py success $(basename $PWD)"
+          "command": "/usr/bin/python3 /path/to/agent-traffic-light/main.py success $(basename $PWD)"
         }
       ]
     }
@@ -114,7 +114,7 @@ python3 main.py show     _              # 恢复显示
 }
 ```
 
-卡片名用 `$(basename $PWD)`（当前项目目录名），这样每个项目的卡片自动区分。把 `/path/to/vibecoding-light/main.py` 换成你本机的实际路径。
+卡片名用 `$(basename $PWD)`（当前项目目录名），这样每个项目的卡片自动区分。把 `/path/to/agent-traffic-light/main.py` 换成你本机的实际路径。
 
 **Codex**（`~/.codex/config.toml`）：
 
@@ -133,26 +133,26 @@ hooks = true
     "SessionStart": [
       {
         "matcher": "",
-        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/vibecoding-light/main.py success $(basename $PWD)"}]
+        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/agent-traffic-light/main.py success $(basename $PWD)"}]
       }
     ],
     "UserPromptSubmit": [
       {
         "matcher": "",
-        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/vibecoding-light/main.py run $(basename $PWD)"}]
+        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/agent-traffic-light/main.py run $(basename $PWD)"}]
       }
     ],
     "Stop": [
       {
         "matcher": "",
-        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/vibecoding-light/main.py success $(basename $PWD)"}]
+        "hooks": [{"type": "command", "command": "/usr/bin/python3 /Users/tina/Code/agent-traffic-light/main.py success $(basename $PWD)"}]
       }
     ]
   }
 }
 ```
 
-`main.py` 在识别父进程时同时匹配 `claude` 和 `codex` 两个关键字，所以存活检测对两者都生效。把 `/Users/tina/Code/vibecoding-light/main.py` 换成你本机的实际路径。
+`main.py` 在识别父进程时同时匹配 `claude` 和 `codex` 两个关键字，所以存活检测对两者都生效。把 `/Users/tina/Code/agent-traffic-light/main.py` 换成你本机的实际路径。
 
 ## 状态颜色
 
